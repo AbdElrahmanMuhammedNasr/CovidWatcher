@@ -64,7 +64,7 @@ class _StatisticState extends State<Statistic> {
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = json.decode(response.body);
         for (var i in responseData["countries_stat"]) {
-          if (i["country_name"] == search) {
+          if (i["country_name"].toLowerCase().trim() == search.toLowerCase().trim()) {
             setState(() {
               print(i);
               totalCase = i["cases"];
